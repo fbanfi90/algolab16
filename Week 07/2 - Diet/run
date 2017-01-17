@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PAD="\033[66G"
+OK="\e[32mOK\e[0m"
+NO="\e[31mNO\e[0m"
+
+for f in test/*.in; do
+    NAME=${f%.in}
+    NAME=${NAME#test/}
+    ./$1 < $f > .out
+    if diff -b ${f%.*}.out .out > /dev/null
+    then
+        echo -e "$NAME:$PAD[ $OK ]"
+    else
+        echo -e "$NAME:$PAD[ $NO ]"
+    fi
+done
+rm .out

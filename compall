@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PAD="\033[66G"
+OK="\e[32mOK\e[0m"
+NO="\e[31mNO\e[0m"
+
+for w in Week*
+do
+    for e in "$w"/*
+    do
+        echo -n $(echo $e | cut -c 6-)
+        cd "$e"
+        if g++ -std=c++11 -O2 -Wall -Wextra -lCGAL -lCGAL_Core -lgmp -lboost_system -lboost_thread -lmpfr -ow${w: -2}e${e:8:1} w${w: -2}e${e:8:1}.cpp 2> /dev/null
+        then
+            echo -e "$PAD[ $OK ]"
+        else
+            echo -e "$PAD[ $NO ]"
+        fi
+        cd ../..
+    done
+done

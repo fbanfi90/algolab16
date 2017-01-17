@@ -1,0 +1,46 @@
+#!/bin/bash
+
+OUT=algolab.tex
+
+echo "\documentclass[a4paper]{article}
+\usepackage{listings}
+\usepackage{geometry}
+\usepackage{lstautogobble}
+\usepackage{xcolor}
+
+\geometry{hmargin={2cm,2cm},vmargin={2cm,2cm}}
+\definecolor{RoyalBlue}{cmyk}{1, 0.50, 0, 0}
+
+\begin{document}
+
+\lstset
+{
+    language=C++,
+    keywordstyle=\color{RoyalBlue},
+    basicstyle=\scriptsize\ttfamily,
+    commentstyle=\ttfamily\itshape\color{gray},
+    stringstyle=\ttfamily,
+    showstringspaces=false,
+    breaklines=true,
+    frameround=ffff,
+    rulecolor=\color{black},
+    autogobble=true
+}" > $OUT
+
+for w in Week*
+do
+    for e in "$w"/*
+    do
+        echo \\section\*{$(echo $e | cut -c 6-)} >> $OUT
+        echo \\lstinputlisting{\"$e/w${w: -2}e${e:8:1}.cpp\"}\\clearpage >> $OUT
+    done
+done
+
+echo \\end{document} >> $OUT
+
+pdflatex $OUT > /dev/null
+rm *.tex
+rm *.log
+rm *.aux
+
+llpp ${OUT//tex/pdf} &
