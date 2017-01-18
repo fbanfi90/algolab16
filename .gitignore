@@ -4,8 +4,7 @@ Examples
 Solutions
 prettify
 *template.cpp
-w*e*
-!w*e*.cpp
-w*e*_*
 *_.cpp
+w*e*
+!w*e[1-9].cpp
 /run
