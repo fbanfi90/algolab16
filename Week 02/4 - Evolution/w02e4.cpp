@@ -51,7 +51,7 @@ int main()
         vector<bool> pushed(n);
         stack<int> s;
         s.push(root);
-        pushed[root] = 1;
+        pushed[root] = true;
         while (!s.empty())
         {
             int v = s.top();
