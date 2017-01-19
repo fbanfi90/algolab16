@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <queue>
 
 #include <boost/graph/adjacency_list.hpp>
@@ -58,10 +59,10 @@ int main()
         push_relabel_max_flow(gr, src, snk);
         
         // Perform BFS on residual graph.
-        vector<int> vs(g + s + 2);
         std::queue<int> q;
-        vs[src] = true;
+        vector<int> vs(g + s + 2);
         q.push(src);
+        vs[src] = true;
         while (!q.empty())
         {
             int u = q.front();

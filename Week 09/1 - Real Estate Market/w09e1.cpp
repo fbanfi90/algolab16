@@ -38,7 +38,7 @@ int main()
         int n, m, s, B = 100;
         cin >> n >> m >> s;
         
-        // Create Graph.
+        // Create graph.
         G g(n + m + s + 2);
         ECM ecm = get(edge_capacity, g);
         EWM ewm = get(edge_weight, g);
@@ -64,9 +64,9 @@ int main()
         
         // Compute MinCost-MaxFlow.
         successive_shortest_path_nonnegative_weights(g, src, snk);
-        int cost = find_flow_cost(g), flow = 0;
+        int c = find_flow_cost(g), f = 0;
         for (auto e = out_edges(vertex(src, g), g); e.first != e.second; ++e.first)
-            flow += ecm[*e.first] - rcm[*e.first];
-        cout << flow << " " << flow * B - cost << endl;
+            f += ecm[*e.first] - rcm[*e.first];
+        cout << f << ' ' << f * B - c << endl;
     }
 }
