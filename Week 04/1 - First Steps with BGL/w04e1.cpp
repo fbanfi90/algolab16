@@ -51,6 +51,4 @@ int main()
         
         cout << w << " " << d << endl;
     }
-    
-    return 0;
 }

@@ -50,6 +50,4 @@ int main()
             cout << (s.is_infeasible() || s.objective_value() > V ? "No." : "Yes.") << endl;
         }
     }
-    
-    return 0;
 }

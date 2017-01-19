@@ -29,6 +29,4 @@ int main()
         
         cout << E << endl;
     }
-    
-    return 0;
 }

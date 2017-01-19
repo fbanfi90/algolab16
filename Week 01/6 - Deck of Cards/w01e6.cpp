@@ -27,6 +27,4 @@ int main()
         }
         cout << i_ << " " << j_ << endl;
     }
-    
-    return 0;
 }

@@ -34,12 +34,10 @@ int main()
         vector<bitset<16>> bs(n / k);
         for (int i = 0; i < n / k; ++i)
             for (int j = 0; j < k; ++j)
-                bs[i][k - j - 1] = [=](){ bool b; cin >> b; return b; }();
+                bs[i][k - j - 1] = [](){ bool b; cin >> b; return b; }();
         
         // Solve recursion using dynamic programming.
         vector<vector<int>> m(2, vector<int>(n / k, -1));
         cout << solve(n / k - 1, k, bitset<16>(x), bitset<16>(), bs, m) << endl;
     }
-    
-    return 0;
 }

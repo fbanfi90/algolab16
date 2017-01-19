@@ -99,6 +99,4 @@ int main()
         if (hit) cout << (long)f2d(p.x()) << " " << (long)f2d(p.y()) << endl;
         else cout << "no" << endl;
     }
-    
-    return 0;
 }

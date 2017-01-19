@@ -62,6 +62,4 @@ int main()
         
         cout << (long)c2d(best) << endl;
     }
-    
-    return 0;
 }

@@ -64,6 +64,4 @@ int main()
                 ++cnt, sol = k;
         cout << (cnt == 1 ? sol : 0) << endl;
     }
-    
-    return 0;
 }

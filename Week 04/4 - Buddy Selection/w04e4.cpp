@@ -53,6 +53,4 @@ int main()
         edmonds_maximum_cardinality_matching(g, &mate[0]);
         cout << (matching_size(g, &mate[0]) == (size_t)n / 2 ? "not optimal" : "optimal") << endl;
     }
-    
-    return 0;
 }

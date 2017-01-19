@@ -3,8 +3,8 @@ Threefolds
 Examples
 Solutions
 prettify
+findtabs
 *template.cpp
-*_.cpp
 w*e*
 !w*e[1-9].cpp
 /run

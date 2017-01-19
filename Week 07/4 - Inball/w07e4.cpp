@@ -47,6 +47,4 @@ int main()
         cout << (s.is_infeasible() ? "none" : (s.is_unbounded() ? "inf" :
                 to_string(-(int)to_double(s.objective_value())))) << endl;
     }
-    
-    return 0;
 }

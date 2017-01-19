@@ -35,6 +35,4 @@ int main()
         MC mc(&cs[0], &cs[n], true);
         cout << ceil(sqrt(mc.circle().squared_radius())) << endl;
     }
-    
-    return 0;
 }

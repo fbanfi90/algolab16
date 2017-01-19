@@ -35,6 +35,4 @@ int main()
         
         cout << (hit ? "yes" : "no") << endl;
     }
-    
-    return 0;
 }

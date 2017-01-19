@@ -135,6 +135,4 @@ int main_old()
         
         cout << size << endl;
     }
-    
-    return 0;
 }

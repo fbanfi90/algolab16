@@ -57,6 +57,4 @@ int main()
         }       
         cout << 3 * r - 1 << endl;
     }
-    
-    return 0;
 }

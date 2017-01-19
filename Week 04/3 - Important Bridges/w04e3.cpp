@@ -58,6 +58,4 @@ int main()
         for (auto e : es)
             cout << e.first << " " << e.second << endl;
     }
-    
-    return 0;
 }

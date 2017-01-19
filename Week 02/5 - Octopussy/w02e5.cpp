@@ -38,6 +38,4 @@ int main()
         
         cout << (success ? "yes" : "no") << endl;
     }
-    
-    return 0;
 }

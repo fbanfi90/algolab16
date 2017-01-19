@@ -40,6 +40,4 @@ int main()
         
         cout << (rs[i] ? "yes" : "no") << endl;
     }
-    
-    return 0;
 }

@@ -67,6 +67,4 @@ int main()
                     to_string((int)ceil(to_double(s.objective_value())))) << endl;            
         }
     }
-    
-    return 0;
 }

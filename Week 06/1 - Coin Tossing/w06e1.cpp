@@ -8,11 +8,11 @@
 using namespace std;
 using namespace boost;
 
-typedef	adjacency_list_traits<vecS, vecS, directedS> T;
+typedef adjacency_list_traits<vecS, vecS, directedS> T;
 typedef adjacency_list<vecS, vecS, directedS, no_property, property<edge_capacity_t, long,
         property<edge_residual_capacity_t, long, property<edge_reverse_t, T::edge_descriptor>>>> G;
-typedef	property_map<G, edge_capacity_t>::type ECM;
-typedef	property_map<G, edge_reverse_t>::type REM;
+typedef property_map<G, edge_capacity_t>::type ECM;
+typedef property_map<G, edge_reverse_t>::type REM;
 
 void add(int u, int v, long w, G& g, ECM& ecm, REM& rem)
 {
@@ -75,6 +75,4 @@ int main()
         
         cout << (sol ? "yes" : "no") << endl;
     }
-    
-    return 0;
 }

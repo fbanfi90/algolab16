@@ -83,6 +83,4 @@ int main()
             cout << species[result[i]] << " ";
         cout << endl;
     }
-    
-    return 0;
 }

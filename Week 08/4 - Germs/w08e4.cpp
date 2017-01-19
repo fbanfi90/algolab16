@@ -60,6 +60,4 @@ int main()
         sort(ts.begin(), ts.end());
         cout << ts.front() << ' ' << ts[n / 2] << ' ' << ts.back() << endl;
     }
-    
-    return 0;
 }

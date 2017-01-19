@@ -37,6 +37,4 @@ int main()
         vector<vector<int>> m(n, vector<int>(n, -1));
         cout << solve(0, n - 1, true, vs, m) << endl;
     }
-    
-    return 0;
 }

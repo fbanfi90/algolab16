@@ -95,6 +95,4 @@ int main_naive_bruteforce()
         
         cout << (one ? to_string(best) : "impossible") << endl;
     }
-    
-    return 0;
 }

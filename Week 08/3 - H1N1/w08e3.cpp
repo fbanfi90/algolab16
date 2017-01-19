@@ -31,7 +31,7 @@ int main()
             cin >> is[i];
         T t(is.begin(), is.end());
         
-        // Find whether each healthy can escape.
+        // Find whether each healthy person can escape.
         cin >> m;
         for (int j = 0; j < m; ++j)
         {
@@ -64,6 +64,4 @@ int main()
         
         cout << endl;
     }
-    
-    return 0;
 }

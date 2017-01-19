@@ -74,6 +74,4 @@ int main()
         vector<int> m([=](){ int N = 1; for (int i = 0; i < n; ++i) N *= ms[i] + 1; return N; }(), -1);
         cout << solve(ps, cs, n, ms, m) << endl;
     }
-    
-    return 0;
 }

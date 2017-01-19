@@ -70,6 +70,4 @@ int main()
         
         cout << dist[b] << endl;
     }
-    
-    return 0;
 }

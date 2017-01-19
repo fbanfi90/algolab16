@@ -40,6 +40,4 @@ int main()
             cout << squared_distance(p, t.nearest_vertex(p)->point()) << endl;
         }
     }
-    
-    return 0;
 }

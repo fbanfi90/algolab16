@@ -35,6 +35,4 @@ int main()
         
         cout << (int)ceil(to_double(50 * sqrt(min))) << endl;
     }
-    
-    return 0;
 }

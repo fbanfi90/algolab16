@@ -66,6 +66,4 @@ int main()
         
         cout << l << endl;
     }
-    
-    return 0;
 }

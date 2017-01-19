@@ -64,6 +64,4 @@ int main()
         // Solve linear program.
         cout << (solve_linear_program(lp, ET()).is_infeasible() ? "no" : "yes") << endl;
     }
-    
-    return 0;
 }

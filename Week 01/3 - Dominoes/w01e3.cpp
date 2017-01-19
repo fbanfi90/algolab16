@@ -30,6 +30,4 @@ int main()
         
         cout << (d < n ? d : n) << endl;
     }
-    
-    return 0;
 }

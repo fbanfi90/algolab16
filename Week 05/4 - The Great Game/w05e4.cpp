@@ -55,6 +55,4 @@ int main()
         // If same # of steps, 0 wins iff # of steps even.
         cout << (s0 != s1 ? s0 > s1 : s0 % 2 == 0) << endl;
     }
-    
-    return 0;
 }
