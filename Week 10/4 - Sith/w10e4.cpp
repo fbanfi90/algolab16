@@ -39,7 +39,7 @@ int main()
         for (int i = 0; i < n; ++i)
             cin >> ps[i];
         
-        // Find optimal k using binary search..
+        // Find optimal k using binary search.
         int lk = 0, rk = n - 1, mk;
         while (lk != rk)
         {
@@ -69,7 +69,6 @@ int main()
             else rk = mk;
         }
         
-        // Print result.
         cout << lk - 1 << endl;
     }
     

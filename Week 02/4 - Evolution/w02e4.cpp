@@ -48,10 +48,8 @@ int main()
         
         // Perform modified DFS iteratively on tree.
         vector<int> path, result(q);
-        vector<bool> pushed(n);
         stack<int> s;
         s.push(root);
-        pushed[root] = true;
         while (!s.empty())
         {
             int v = s.top();
@@ -72,8 +70,7 @@ int main()
             }
             
             for (int u : adj[v])
-                if (!pushed[u])
-                    s.push(u), pushed[u] = true;
+                s.push(u);
             
             if (adj[v].size() == 0)
                 path.pop_back();
