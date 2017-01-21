@@ -1,24 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <map>
 
 using namespace std;
 
-int solve(vector<int>& ps, const vector<vector<int>>& cs, int n, const vector<int>& ms, vector<int>& m)
+int solve(vector<int>& ps, const vector<vector<int>>& cs, int n, const vector<int>& ms, map<vector<int>, int>& m)
 {
-    // Get the hash of this state.
-    int h = 0;
-    for (int i = 0; i < n; ++i)
-    {
-        int t = 1;
-        for (int j = 0; j < i; ++j)
-            t *= ms[j] + 1;
-        h += (ps[i] + 1) * t;
-    }
-    
     // Use memoization.
-    if (m[h] != -1)
-        return m[h];
+    if (m.count(ps))
+        return m[ps];
     
     // Use recursion on monochromatic subsets.
     int max = 0;
@@ -41,7 +32,7 @@ int solve(vector<int>& ps, const vector<vector<int>>& cs, int n, const vector<in
             max = g;
     }
     
-    return m[h] = max;
+    return m[ps] = max;
 }
 
 int main()
@@ -71,7 +62,7 @@ int main()
         }
         
         // Solve recursion using dynamic programming.
-        vector<int> m([=](){ int N = 1; for (int i = 0; i < n; ++i) N *= ms[i] + 1; return N; }(), -1);
+        map<vector<int>, int> m;
         cout << solve(ps, cs, n, ms, m) << endl;
     }
 }
