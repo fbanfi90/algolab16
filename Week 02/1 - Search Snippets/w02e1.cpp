@@ -44,7 +44,7 @@ int main()
             if (c == n && (l_ = pws[b].first - pws[a].first + 1) < l)
                 l = l_;
             
-            // Increase  lower- or upper-bound depending of number of different words.
+            // Increase  lower- or upper-bound depending on the number of different words.
             if (c < n && b < N - 1)
             {
                 if (cs[pws[++b].second]++ == 0)
