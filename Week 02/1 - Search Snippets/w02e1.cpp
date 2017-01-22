@@ -25,14 +25,8 @@ int main()
         // Create ordered list of position/word pairs.
         vector<pair<int, int>> pws;
         for (int w = 0; w < n; ++w)
-        {
             for (int i = 0; i < ms[w]; ++i)
-            {
-                int p;
-                cin >> p;
-                pws.push_back(make_pair(p, w));
-            }
-        }
+                pws.push_back(make_pair([](){ int p; cin >> p; return p; }(), w));
         sort(pws.begin(), pws.end());
         
         // Position of last occurrence of each word.
@@ -40,28 +34,27 @@ int main()
         for (int w = 0; w < n; ++w)
             ls[w] = -1;
         
-        // Scan the list and update a, b, and length l.
-        int a, b, lw = pws[0].second, l = numeric_limits<int>::max();
-        for (auto pw : pws)
+        // Sliding window on positions-words sequence.
+        int a = 0, b = 0, c = 1, l = numeric_limits<int>::max(), l_, N = pws.size();
+        vector<int> cs(n);
+        cs[pws[0].second] = 1;
+        while (a < N)
         {
-            // Update last position of this word.
-            ls[pw.second] = pw.first;
-            
-            // Update minimum index if necessary.
-            if (pw.second == lw)
-            {
-                auto idx = min_element(ls.begin(), ls.end());
-                lw = distance(ls.begin(), idx);
-                a = *idx;
-            }
-            
-            // Current word is always at maximum position.
-            b = pw.first;
-            
-            // Update interval length if better.
-            int l_ = b - a + 1;
-            if (a != -1 && l_ < l)
+            // If this interval contains all the words, check whether optimal.
+            if (c == n && (l_ = pws[b].first - pws[a].first + 1) < l)
                 l = l_;
+            
+            // Increase  lower- or upper-bound depending of number of different words.
+            if (c < n && b < N - 1)
+            {
+                if (cs[pws[++b].second]++ == 0)
+                    ++c;
+            }
+            else
+            {
+                if (cs[pws[a++].second]-- == 1)
+                    --c;
+            }
         }
         
         cout << l << endl;
