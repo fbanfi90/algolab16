@@ -12,7 +12,7 @@ typedef adjacency_list<vecS, vecS, directedS, no_property,
         property<edge_capacity_t, long, property<edge_residual_capacity_t, long,
         property<edge_reverse_t, T::edge_descriptor, property<edge_weight_t, long>>>>> G;
 typedef property_map<G, edge_capacity_t>::type ECM;
-typedef property_map<G, edge_weight_t >::type EWM;
+typedef property_map<G, edge_weight_t>::type EWM;
 typedef property_map<G, edge_residual_capacity_t>::type RCM;
 typedef property_map<G, edge_reverse_t>::type REM;
 

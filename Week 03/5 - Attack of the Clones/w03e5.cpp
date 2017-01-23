@@ -6,7 +6,10 @@
 using namespace std;
 
 int main()
-{return 0;//TL
+{
+    // ABRT.
+    return 0;
+    
     int t;
     cin >> t;
     
@@ -67,72 +70,5 @@ int main()
         }
         
         cout << max_size << endl;
-    }
-    
-    return 0;
-}
-
-int main_old()
-{
-    int t;
-    cin >> t;
-    
-    while (t--)
-    {
-        int n, m;
-        cin >> n >> m;
-        
-        // Read and sort covered segments.
-        vector<pair<int, int>> ss(n);
-        for (int i = 0; i < n; ++i)
-            cin >> ss[i].first >> ss[i].second;//if(ss[i].first > ss[i].second)ss[i].second+=m;}
-        sort(ss.begin(), ss.end());
-        
-        // Greedily chose which Jedi to take.
-        bool wrap = false;
-        int left = ss[0].first, right = ss[0].second, size = 1;
-        for (auto s : ss)
-        {//cout<<s.first<<" "<<s.second<<" ";
-            // The segment does not wrap.
-            if (s.first <= s.second)
-            {
-                // If already wrapped, take this instead of the last wrapping.
-                if (wrap)
-                {
-                    right = s.second;//cout<<"x ";
-                    wrap = false;
-                }
-                
-                // There is place for this Jedi.
-                else if (s.first > right)//{
-                    right = s.second, ++size;//cout<<"a ";}
-                
-                // If taking this Jedi instead of the last is better, take it.
-                else if (s.second <= right)
-                {
-                    right = s.second;//cout<<"b ";
-                    if (size == 1)
-                        left = s.first;
-                }
-            }
-            
-            // The segment wraps.
-            else
-            {
-                // There is place for this Jedi.
-                if (!wrap && s.first > right && s.second < left)
-                {
-                    right = s.second, ++size;//cout<<"c ";    
-                    wrap = true;
-                }
-                
-                // If taking this Jedi instead of the last is better, take it.
-            //    else if (wrap && s.second < right)//{
-            //        right = s.second;//cout<<"d ";}
-                
-            }//cout<<endl;
-        }
-        
-        cout << size << endl;
     }
 }
