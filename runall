@@ -2,6 +2,7 @@
 
 PAD="\033[66G"
 OK="\e[32mOK\e[0m"
+WA="\e[33mWA\e[0m"
 NO="\e[31mNO\e[0m"
 
 for w in Week*
@@ -10,11 +11,17 @@ do
     do
         echo -n $(echo $e | cut -c 6-)
         cd "$e"
-        if ! ./run w${w: -2}e${e:8:1} | grep NO > /dev/null
+        RES=$(./run w${w: -2}e${e:8:1})
+        if ! echo "$RES" | grep NO > /dev/null
         then
             echo -e "$PAD[ $OK ]"
         else
-            echo -e "$PAD[ $NO ]"
+            if echo "$RES" | grep OK > /dev/null
+            then
+                echo -e "$PAD[ $WA ]"
+            else
+                echo -e "$PAD[ $NO ]"
+            fi    
         fi
         cd ../..
     done

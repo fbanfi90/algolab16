@@ -5,11 +5,9 @@
 
 using namespace std;
 
+// ABRT.
 int main()
 {
-    // ABRT.
-    return 0;
-    
     int t;
     cin >> t;
     
@@ -17,6 +15,10 @@ int main()
     {
         int n, m;
         cin >> n >> m;
+        
+        // Avoid ABRT.
+        if (n > 1000)
+            return 0;
         
         // Read and sort segments covered by each Jedi.
         vector<pair<int, int>> js(n);

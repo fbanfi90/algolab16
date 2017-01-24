@@ -36,7 +36,7 @@ int main()
         }
         
         // Triangulate lamps.
-        T t(ls.begin(), ls.end());
+        T dt(ls.begin(), ls.end());
         
         // Find for each partecipant which (if any) lamp hits him first.
         int last = -1;
@@ -45,7 +45,7 @@ int main()
         vector<bool> hs(m);
         for (int j = 0; j < m; ++j)
         {
-            P l = t.nearest_vertex(ps[j])->point();
+            P l = dt.nearest_vertex(ps[j])->point();
             if (sqrt(to_double(squared_distance(ps[j], l))) >= double(h + rs[j]))
             {
                 cout << j << ' ';

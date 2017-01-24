@@ -46,14 +46,14 @@ int main()
             // Triangulate remaining planets and label them.
             int i = 0;
             mk = (lk + rk) / 2;
-            T t(ps.begin() + mk, ps.end());
-            for (auto v = t.finite_vertices_begin(); v != t.finite_vertices_end(); ++v)
+            T dt(ps.begin() + mk, ps.end());
+            for (auto v = dt.finite_vertices_begin(); v != dt.finite_vertices_end(); ++v)
                 v->info() = i++;
             
             // Build distance-induced graph.
             G g(n - mk);
-            for (auto e = t.finite_edges_begin(); e != t.finite_edges_end(); ++e)
-                if (t.segment(e).squared_length() <= r2)
+            for (auto e = dt.finite_edges_begin(); e != dt.finite_edges_end(); ++e)
+                if (dt.segment(e).squared_length() <= r2)
                     add_edge(e->first->vertex((e->second + 1) % 3)->info(),
                             e->first->vertex((e->second + 2) % 3)->info(), g);
             
